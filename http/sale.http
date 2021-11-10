@@ -1,0 +1,16 @@
+### Registrar venta
+POST http://localhost:9093/v1/api/account/save
+Content-Type: application/json 
+
+{
+    "name": "DVD"
+}
+
+#### Obtener todos las ventas
+GET http://localhost:9093/v1/api/account/all
+Accept: application/json
+
+#### Obtener 1 venta
+GET http://localhost:9093/v1/api/account?accountId=1
+Accept: application/json
+
