@@ -1,5 +1,6 @@
 package arquitectura.software.mssale.Api;
 
+import arquitectura.software.mssale.config.SaleConfig;
 import arquitectura.software.mssale.entity.Sale;
 import arquitectura.software.mssale.repository.SaleRepository;
 import java.util.List;
@@ -19,6 +20,8 @@ public class SaleController{
 
     @Autowired
     private SaleRepository saleRepository;
+    @Autowired
+    private SaleConfig saleConfig;
     
     @RequestMapping(path = "/test",
                     method = RequestMethod.GET)
@@ -29,6 +32,7 @@ public class SaleController{
     @RequestMapping(path = "/save",
                      method = RequestMethod.POST)
     public Sale saveSale(@RequestBody Sale sale){
+        System.out.println("Registrando al cliente -->: " + saleConfig.showConfiguration());
        return saleRepository.save(sale);
     }
 

@@ -1,5 +1,13 @@
-### Registrar venta
+### Registrar venta por ms-sale
 POST http://localhost:9093/v1/api/account/save
+Content-Type: application/json 
+
+{
+    "name": "DVD"
+}
+
+### Registrar venta pasando por GATEWAY
+POST http://localhost:8282/ms-sale/v1/api/customer/save
 Content-Type: application/json 
 
 {
