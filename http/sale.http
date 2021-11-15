@@ -1,3 +1,8 @@
+
+#### 
+GET http://localhost:9091/v1/api/sale/test
+Accept: application/json
+
 ### Registrar venta por ms-sale
 POST http://localhost:9093/v1/api/account/save
 Content-Type: application/json 

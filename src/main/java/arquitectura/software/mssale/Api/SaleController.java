@@ -3,8 +3,13 @@ package arquitectura.software.mssale.Api;
 import arquitectura.software.mssale.config.SaleConfig;
 import arquitectura.software.mssale.entity.Sale;
 import arquitectura.software.mssale.repository.SaleRepository;
+import arquitectura.software.mssale.service.AccountService;
+import feign.Logger;
+
 import java.util.List;
 import java.util.Optional;
+
+import org.hibernate.annotations.common.util.impl.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.CustomAutowireConfigurer;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,14 +23,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 public class SaleController{
 
+    private static Logger LOGGER = LoggerFactory.logger(SaleController.class);
+
     @Autowired
     private SaleRepository saleRepository;
     @Autowired
     private SaleConfig saleConfig;
+    @Autowired
+    private AccountService accountService;
     
     @RequestMapping(path = "/test",
                     method = RequestMethod.GET)
     public String testAccount(){
+        LOGGER.info("Probando endpoint ms-saler");
+        String result = accountService.testAccount();
+        LOGGER.info("Probando endpoint ms-sale", result);
         return "Ms-sale";
     }
 
